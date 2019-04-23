@@ -1,3 +1,6 @@
+" mkdir -p ~/.vim/bundle
+" git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+filetype off
 if has('vim_starting')
 	set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif

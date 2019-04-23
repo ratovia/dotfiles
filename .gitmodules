@@ -1,0 +1,9 @@
+[submodule "~dotfiles/.vim/bundle/neobundle.vim"]
+	path = ~dotfiles/.vim/bundle/neobundle.vim
+	url = git://github.com/Shougo/neobundle.vim
+[submodule "~dotfiles/.vim/bundle/vimfiler.vim"]
+	path = ~dotfiles/.vim/bundle/vimfiler.vim
+	url = git://github.com/Shougo/vimfiler.vim
+[submodule "~dotfiles/.vim/bundle/vimfiler"]
+	path = ~dotfiles/.vim/bundle/vimfiler
+	url = git://github.com/Shougo/vimfiler.vim
