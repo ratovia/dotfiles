@@ -1,7 +1,8 @@
 export PATH="$HOME/.rbenv/shims:$PATH"
+export PATH="$HOME/.shellscript:$PATH"
 export EDITOR="nvim"
 alias vim="nvim"
-alias vi="nvim"
+alias c="clear"
 #peco
 function peco-git-checkout
    git branch -a | peco | tr -d ' ' | read branch
@@ -40,6 +41,7 @@ function peco_workspace_change
   else
     commandline ''
   end
+  commandline -f repaint
 end
 
 function fish_user_key_bindings
@@ -51,4 +53,3 @@ end
 
 
 alias checkout=peco-git-checkout
-alias c="clear"

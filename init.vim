@@ -25,6 +25,9 @@ if dein#check_install()
   call dein#install()
 endif
 
+" lazygit
+
+map <C-g> :terminal lazygit<CR>
 
 
 " ファイルの形式を検出

@@ -5,7 +5,6 @@ repo = 'Shougo/dein.vim'
 repo = 'scrooloose/nerdtree'
 hook_add = '''
 map <C-e> :NERDTreeToggle<CR>
-autocmd vimenter * NERDTree
 let NERDTreeShowHidden=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowBookmarks=1
@@ -22,12 +21,18 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'simeji/winresizer'
+hook_add = '''
+  let g:winresizer_start_key = '<C-r>'
+'''
+[[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
 
   nnoremap [denite] <Nop>
   nmap <C-d> [denite]
-  noremap [denite]<C-j> :Denite grep<CR>
+  noremap [denite]<C-g> :Denite grep<CR>
+  noremap [denite]<C-b> :Denite buffer<CR>
   nmap <C-t> :terminal<CR>
 
 augroup denite_filter
@@ -50,7 +55,7 @@ augroup END
 
 " use floating
   let s:denite_win_width_percent = 0.85
-  let s:denite_win_height_percent = 0.7
+  let s:denite_win_height_percent = 0.33
   let s:denite_default_options = {
     \ 'split': 'floating',
     \ 'winwidth': float2nr(&columns * s:denite_win_width_percent),
@@ -105,6 +110,8 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 '''
+[[plugins]]
+repo = 'mattn/emmet-vim'
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
@@ -126,3 +133,4 @@ nnoremap <silent> [rails]h :<C-u>Denite<Space>rails:helper<Return>
 nnoremap <silent> [rails]r :<C-u>Denite<Space>rails:test<Return>
 nnoremap <silent> [rails]s :<C-u>Denite<Space>rails:spec<Return>
 '''
+
