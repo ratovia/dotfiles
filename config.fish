@@ -1,8 +1,11 @@
 export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="$HOME/.shellscript:$PATH"
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+export AAA="aaaaaaa"
 export EDITOR="nvim"
 alias vim="nvim"
 alias c="clear"
+
 #peco
 function peco-git-checkout
    git branch -a | peco | tr -d ' ' | read branch

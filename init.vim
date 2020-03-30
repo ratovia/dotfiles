@@ -87,13 +87,28 @@ set statusline=%F%=%f%r
 " コマンドラインの補完有効化
 set wildmenu
 " カラースキーマ
-" colorscheme railscasts
+colorscheme koehler
 " コマンドラインの補完 - マッチするものをリスト表示しつつ、共通する最長の部分まで補完
 set wildmode=list:longest
 " 保存していなくても他のファイルを開ける
 set hidden
-
+" ハイライトをescで終了
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+" yでコピーした時にクリップボードに入る
+set guioptions+=a
+" ヤンクでクリップボードにコピー
+set clipboard+=unnamed
+" インサートモードをjjで抜ける
+inoremap <silent> jj <ESC>
 " Shift + j(k)でライン移動
 nnoremap <S-j> :m .+1<CR>==
 nnoremap <S-k> :m .-2<CR>==
 nnoremap <C-n> :tabnew<CR>
+
+" vue
+autocmd FileType vue syntax sync fromstart
+
+
+" qを無効にする
+nnoremap q <Nop>
+nnoremap Q <Nop>
