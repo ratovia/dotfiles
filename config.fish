@@ -1,10 +1,14 @@
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+. (pyenv init - | psub)
+
 export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="$HOME/.shellscript:$PATH"
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
-export AAA="aaaaaaa"
 export EDITOR="nvim"
 alias vim="nvim"
 alias c="clear"
+
 
 #peco
 function peco-git-checkout
@@ -38,9 +42,9 @@ function peco_select_history_order
 end
 
 function peco_workspace_change
-  ls /Users/ratovia/workspace/techexpert/ | peco | read foo
+  ls /Users/tech-camp/workspace/ | peco | read foo
   if [ $foo ]
-    commandline "cd /Users/ratovia/workspace/techexpert/$foo"
+    commandline "cd /Users/tech-camp/workspace/$foo"
   else
     commandline ''
   end
