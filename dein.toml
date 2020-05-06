@@ -2,6 +2,65 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'mhinz/vim-startify'
+hook_add = '''
+let g:startify_bookmarks = [ {'53': '~/workspace/freemarket_sample_53b'}, {'d': '~/workspace/dotfiles'}]
+let g:startify_change_to_dir = 1
+let g:startify_change_to_vcs_root = 1
+let g:ascii = [
+    \ '■■     ■■■  ■■■■■■■■     ■■■■   ■■■■   ■■■  ■■■■  ■■■      ■■■',
+    \ ' ■■     ■    ■■    ■   ■■   ■■    ■     ■    ■■    ■■      ■■ ',
+    \ ' ■■■    ■    ■■    ■   ■     ■■   ■     ■    ■■    ■■      ■■ ',
+    \ ' ■ ■    ■    ■■       ■■      ■   ■■   ■     ■■    ■■■    ■ ■ ',
+    \ ' ■  ■   ■    ■■  ■    ■       ■    ■   ■     ■■    ■ ■    ■ ■ ',
+    \ ' ■  ■■  ■    ■■■■■    ■       ■    ■   ■     ■■    ■ ■■     ■ ',
+    \ ' ■   ■■ ■    ■■  ■    ■       ■    ■■ ■      ■■    ■  ■  ■  ■ ',
+    \ ' ■    ■ ■    ■■       ■■      ■     ■ ■      ■■    ■  ■  ■  ■ ',
+    \ ' ■    ■■■    ■■    ■   ■     ■■     ■■■      ■■    ■  ■■■   ■ ',
+    \ ' ■     ■■    ■■    ■   ■■    ■       ■       ■■    ■   ■■   ■ ',
+    \ '■■■     ■   ■■■■■■■■     ■■■■        ■      ■■■■  ■■■  ■   ■■■',
+    \ ]
+let g:startify_custom_header = g:ascii
+let g:startify_enable_special = 1   
+let g:startify_lists = [
+          \ { 'type': 'files',     'header': ['〇 最近使ったファイル'] },
+          \ { 'type': 'sessions',  'header': ['   Sessions'] },
+          \ { 'type': 'bookmarks', 'header': ['〇 Bookmarks'] }
+          \ ]
+let g:startify_skiplist = [
+        \ '^/tmp',
+        \ '.swap$',
+        \ '.tmp$',
+        \ ]
+let g:startify_update_oldfiles = 1
+
+" For Misc options
+let g:startify_commands = []
+let g:startify_custom_footer = ['-------------------------------------------------------']
+let g:startify_disable_at_vimenter = 0
+let g:startify_enable_unsafe = 0
+let g:startify_files_number = 5
+let g:startify_fortune_use_unicode = 0
+let g:startify_padding_left = 4
+let g:startify_relative_path = 1
+let g:startify_use_env = 1
+
+" For Sessions     
+let g:startify_session_autoload = 1     
+let g:startify_session_before_save = ['echo "Saving this session ..."']    
+let g:startify_session_delete_buffers = 0     
+let g:startify_session_dir = '~/.vim/session'     
+let g:startify_session_number = 20     
+let g:startify_session_persistence = 1     
+let g:startify_session_remove_lines = ['setlocal', 'winheight']    
+let g:startify_session_savecmds = ['echo "Saved a session."']
+let g:startify_session_savevars = [    
+           \ 'g:startify_session_savevars',    
+           \ 'g:startify_session_savecmds',    
+           \ ]    
+let g:startify_session_sort = 1
+'''
+[[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
 map <C-e> :NERDTreeToggle<CR>
@@ -87,4 +146,42 @@ autocmd FileType defx call s:defx_my_settings()
       nnoremap <silent><buffer><expr> cd
      \ defx#do_action('change_vim_cwd')
     endfunction
+'''
+
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = '''
+let g:deoplete#enable_at_startup   = 1
+'''
+
+
+
+# neosnippet----------------
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+depends = ['neosnippet-snippets', 'context_filetype.vim']
+on_i = 1
+hook_source = '''
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+ For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 '''

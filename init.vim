@@ -29,7 +29,6 @@ endif
 
 map <C-g> :terminal lazygit<CR>
 
-
 " ファイルの形式を検出
 filetype plugin indent on
 " 文法ごとに色分け
@@ -54,7 +53,7 @@ nnoremap k gk
 " Tab文字を半角スペースにする
 set expandtab
 " 現在の行をハイライト
-set cursorline      
+set cursorline
 " 上と合わせることで行番号のみハイライト
 hi clear CursorLine 
 " 行番号を表示
