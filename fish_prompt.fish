@@ -13,10 +13,10 @@ function fish_right_prompt
 end
 
 function error_line
-  set -l color '81' # 水色
-  set -l background_color '240' # グレー
+  set -l color '15' # 水色
+  set -l background_color '1' # グレー
   set -l line_style (tput sgr0 && tput bold && tput bold && tput setaf $color && tput setab $background_color)
-  set -l error_line "$line_style !! "
+  set -l error_line "$line_style ERROR "
   printf $error_line
 end
 
