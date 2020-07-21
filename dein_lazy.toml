@@ -2,6 +2,6 @@
 repo = 'tpope/vim-endwise'
 on_ft = ['ruby']
 
-# [[plugins]]
-# repo = 'fishbullet/deoplete-ruby'
-# on_ft = ['ruby']
+[[plugins]]
+repo = 'fishbullet/deoplete-ruby'
+on_ft = ['ruby']

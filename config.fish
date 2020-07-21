@@ -8,7 +8,9 @@ export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 export EDITOR="nvim"
 alias vim="nvim"
 alias c="clear"
+alias be="bundle exec"
 
+set fish_color_command        brgreen
 
 #peco
 function peco-git-checkout
