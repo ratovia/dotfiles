@@ -98,93 +98,78 @@ repo = 'airblade/vim-gitgutter'
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-repo = 'Shougo/defx.nvim'
-hook_add = '''
-nnoremap F :Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
-autocmd FileType defx call s:defx_my_settings()
-    function! s:defx_my_settings() abort
-     " Define mappings
-      nnoremap <silent><buffer><expr> <CR>
-     \ defx#do_action('open')
-      nnoremap <silent><buffer><expr> y
-     \ defx#do_action('copy')
-      nnoremap <silent><buffer><expr> m
-     \ defx#do_action('move')
-      nnoremap <silent><buffer><expr> p
-     \ defx#do_action('paste')
-      nnoremap <silent><buffer><expr> s
-     \ defx#do_action('open', 'vsplit')
-      nnoremap <silent><buffer><expr> i
-     \ defx#do_action('open', 'pedit')
-      nnoremap <silent><buffer><expr> N
-     \ defx#do_action('new_directory')
-      nnoremap <silent><buffer><expr> n
-     \ defx#do_action('new_file')
-      nnoremap <silent><buffer><expr> d
-     \ defx#do_action('remove')
-      nnoremap <silent><buffer><expr> ,
-     \ defx#do_action('rename')
-      nnoremap <silent><buffer><expr> yy
-     \ defx#do_action('yank_path')
-      nnoremap <silent><buffer><expr> a
-     \ defx#do_action('toggle_ignored_files')
-      nnoremap <silent><buffer><expr> ..
-     \ defx#do_action('cd', ['..'])
-      nnoremap <silent><buffer><expr> ~
-     \ defx#do_action('cd')
-      nnoremap <silent><buffer><expr> q
-     \ defx#do_action('quit')
-      nnoremap <silent><buffer><expr> <Space>
-     \ defx#do_action('toggle_select') . 'j'
-      nnoremap <silent><buffer><expr> *
-     \ defx#do_action('toggle_select_all')
-      nnoremap <silent><buffer><expr> j
-     \ line('.') == line('$') ? 'gg' : 'j'
-      nnoremap <silent><buffer><expr> k
-     \ line('.') == 1 ? 'G' : 'k'
-      nnoremap <silent><buffer><expr> r
-     \ defx#do_action('redraw')
-      nnoremap <silent><buffer><expr> <C-g>
-     \ defx#do_action('print')
-      nnoremap <silent><buffer><expr> cd
-     \ defx#do_action('change_vim_cwd')
-    endfunction
-'''
-
-
-[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''
 let g:deoplete#enable_at_startup   = 1
 '''
 
+#[[plugins]]
+#repo = 'Shougo/deoppet.nvim'
+# hook_add = '''
+#call deoppet#initialize()
+#call deoppet#custom#option('snippets_dirs', globpath(&runtimepath, 'neosnippets', 1, 1))
+#'''
 
-
-# neosnippet----------------
+#[[plugins]]
+#repo = 'vim-jp/autofmt'
 
 [[plugins]]
-repo = 'Shougo/neosnippet.vim'
-depends = ['neosnippet-snippets', 'context_filetype.vim']
-on_i = 1
-hook_source = '''
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+repo = 'tbodt/deoplete-tabnine'
+build = './install.sh'
 
-" SuperTab like snippets behavior.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+[[plugins]]
+repo = 'Shougo/deoplete-nextword'
 
-" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-" \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
- For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+[[plugins]]
+repo = 'dense-analysis/ale'
+hook_add = '''
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
 '''
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+hook_add = '''
+let g:indentLine_color_term = 239
+let g:indentLine_char = '┊'
+let g:indentLine_leadingSpaceChar = '·'
+'''
+
+[[plugins]]
+repo = 'morhetz/gruvbox'
+
+[[plugins]]
+repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_add = '''
+nmap <silent> ,f :<C-u>Denite file<CR>
+nmap <silent> ,r :<C-u>Denite file/rec<CR>
+nmap <silent> ,g :<C-u>Denite grep<CR>
+nmap <silent> ,t :<C-u>Denite file/type<CR>
+nmap <silent> ,b :<C-u>Denite buffer<CR>
+nmap <silent> ,l :<C-u>Denite line<CR>
+" Define mappings
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> d
+  \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p
+  \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> q
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> i
+  \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <Space>
+  \ denite#do_map('toggle_select').'j'
+endfunction
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('file/rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+
+'''
+
