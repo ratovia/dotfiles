@@ -7,7 +7,6 @@ repo = 'sheerun/vim-polyglot'
 [[plugins]]
 repo = 'mhinz/vim-startify'
 hook_add = '''
-let g:startify_bookmarks = [ {'53': '~/workspace/freemarket_sample_53b'}, {'d': '~/workspace/dotfiles'}]
 let g:startify_change_to_dir = 1
 let g:startify_change_to_vcs_root = 1
 let g:ascii = [
@@ -103,15 +102,17 @@ hook_add = '''
 let g:deoplete#enable_at_startup   = 1
 '''
 
-#[[plugins]]
-#repo = 'Shougo/deoppet.nvim'
-# hook_add = '''
-#call deoppet#initialize()
-#call deoppet#custom#option('snippets_dirs', globpath(&runtimepath, 'neosnippets', 1, 1))
-#'''
+[[plugins]]
+repo = 'Shougo/deoppet.nvim'
+hook_add = '''
+call deoppet#initialize()
+call deoppet#custom#option('snippets',
+		\ map(globpath(&runtimepath, 'neosnippets', 1, 1),
+		\     { _, val -> { 'path': val } }))
+'''
 
-#[[plugins]]
-#repo = 'vim-jp/autofmt'
+[[plugins]]
+repo = 'vim-jp/autofmt'
 
 [[plugins]]
 repo = 'tbodt/deoplete-tabnine'
