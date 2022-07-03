@@ -26,7 +26,6 @@ if dein#check_install()
 endif
 
 " lazygit
-
 map <C-g> :terminal lazygit<CR>
 
 " ファイルの形式を検出
@@ -97,17 +96,13 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 set guioptions+=a
 " ヤンクでクリップボードにコピー
 set clipboard+=unnamed
-" インサートモードをjjで抜ける
-inoremap <silent> jj <ESC>
 " Shift + j(k)でライン移動
 nnoremap <S-j> :m .+1<CR>==
 nnoremap <S-k> :m .-2<CR>==
 nnoremap <C-n> :tabnew<CR>
-
-" vue
-autocmd FileType vue syntax sync fromstart
-
-
+" バッファの切り替え
+nnoremap <slient> <C-j> :bprev<CR>
+nnoremap <slient> <C-k> :bnext<CR>
 " qを無効にする
 nnoremap q <Nop>
 nnoremap Q <Nop>
