@@ -4,7 +4,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="$HOME/.shellscript:$PATH"
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+export PATH="/usr/local/opt/mysql/bin:$PATH"
 export EDITOR="nvim"
 alias vim="nvim"
 alias c="clear"
