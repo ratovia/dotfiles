@@ -1,3 +1,7 @@
+# Global color settings for prompt
+set -g background_color "1"
+set -g fours_color "81"
+
 function fish_prompt --description 'Write out the prompt'
   if [ $status -eq 0 ]
   else
