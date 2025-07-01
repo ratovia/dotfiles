@@ -93,7 +93,7 @@ set hidden
 " ハイライトをescで終了
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " yでコピーした時にクリップボードに入る
-set guioptions+=a
+" set guioptions+=a " GUI only option, commented out for terminal use
 " ヤンクでクリップボードにコピー
 set clipboard+=unnamed
 " Shift + j(k)でライン移動
@@ -101,8 +101,12 @@ nnoremap <S-j> :m .+1<CR>==
 nnoremap <S-k> :m .-2<CR>==
 nnoremap <C-n> :tabnew<CR>
 " バッファの切り替え
-nnoremap <slient> <C-j> :bprev<CR>
-nnoremap <slient> <C-k> :bnext<CR>
+nnoremap <silent> <C-j> :bprev<CR>
+nnoremap <silent> <C-k> :bnext<CR>
 " qを無効にする
 nnoremap q <Nop>
 nnoremap Q <Nop>
+
+
+let g:python3_host_prog = expand('~/.asdf/shims/python3')
+
